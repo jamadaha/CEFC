@@ -9,6 +9,7 @@
 class FightHistory {
     public:
     FightHistory() {};
+    
     void AddFight(Fight* fight) {
         if (!EnginesHaveHistory(fight->GetHash()))
             fights.emplace(fight->GetHash(), std::vector<Fight*>());

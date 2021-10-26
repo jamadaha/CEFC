@@ -11,4 +11,5 @@ int main(int, char**) {
     FightOrganizer fightOrganizer = FightOrganizer();
     fightOrganizer.GatherEngines(configReader.GetValue("EnginePath"));
     fightOrganizer.BeginTournament(std::stoi(configReader.GetValue("FightCount")));
+    printf("Done\n");
 }

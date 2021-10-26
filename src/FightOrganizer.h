@@ -8,6 +8,7 @@
 #include <climits>
 
 #include "Engine.h"
+#include "EnginePair.h"
 #include "FightHistory.h"
 
 class FightOrganizer {

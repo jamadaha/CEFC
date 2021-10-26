@@ -1,21 +1,20 @@
 #ifndef FIGHT
 #define FIGHT
 
-#include "Engine.h"
+#include "EnginePair.h"
 
 class Fight {
     public:
-    Fight(Engine *engine1, Engine *engine2) {
-        engines[0] = engine1;
-        engines[1] = engine2;
+    Fight(EnginePair *enginePair) {
+        engines = enginePair;
     };
 
     unsigned long int GetHash() {
-        return (engines[0]->GetId() & engines[1]->GetId());
-    };
+        return engines->GetHash();
+    }
 
     private:
-    Engine *engines[2];
+    EnginePair *engines;
 };
 
 #endif
