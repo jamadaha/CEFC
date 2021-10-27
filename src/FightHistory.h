@@ -10,16 +10,10 @@ class FightHistory {
     public:
     FightHistory() {};
     
-    void AddFight(Fight* fight) {
-        if (!EnginesHaveHistory(fight->GetHash()))
-            fights.emplace(fight->GetHash(), std::vector<Fight*>());
-        fights[fight->GetHash()].push_back(fight);
-    };
+    void AddFight(Fight* fight);
     
     // Checks whether there already exists fight with this hash
-    bool EnginesHaveHistory(unsigned long int hash) {
-        return fights.find(hash) != fights.end();
-    }
+    bool EnginesHaveHistory(unsigned long int hash);
 
     private:
     std::unordered_map<unsigned long int, std::vector<Fight*>> fights;
