@@ -7,6 +7,8 @@ class EnginePair {
     public:
     EnginePair(Engine *engine1, Engine *engine2);
 
+    Engine *GetEngine(int index);
+
     unsigned long int GetHash();
 
     private:

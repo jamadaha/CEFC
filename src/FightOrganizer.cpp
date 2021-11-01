@@ -26,6 +26,8 @@ void FightOrganizer::BeginTournament(int fightCount) {
             for (int fightIndex = 0; fightIndex < fightCount; fightIndex++) {
                 Fight *fight = new Fight(enginePair);
 
+                enginePair->GetEngine(0)->GetMove("");
+
                 fightHistory.AddFight(fight);
             }
         }
