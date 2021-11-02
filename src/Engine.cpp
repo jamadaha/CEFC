@@ -21,7 +21,9 @@ std::string Engine::GetMove(std::string moves) {
     std::vector<std::string> lines;
     while (std::fgets(buf, 64, handle))
     {
-        lines.push_back(buf);
+        std::string tempString = buf;
+        tempString = tempString.substr(0, tempString.size() - 1);
+        lines.push_back(tempString);
     }
     pclose(handle);
 
