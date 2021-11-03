@@ -25,8 +25,7 @@ void FightOrganizer::BeginTournament(int fightCount) {
             // Get index of current fight, until it reaches fightCount
             for (int fightIndex = 0; fightIndex < fightCount; fightIndex++) {
                 Fight *fight = new Fight(enginePair);
-
-                std::string move = enginePair->GetEngine(0)->GetMove("");
+                fight->Begin();
 
                 fightHistory.AddFight(fight);
             }

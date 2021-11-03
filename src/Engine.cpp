@@ -10,7 +10,9 @@ unsigned long int Engine::GetId() {
 };
 
 std::string Engine::GetMove(std::string moves) {
-    FILE *handle = popen(this->path.c_str(), "r");
+    auto command = (this->path + ' ' + moves);
+    printf("Running engine %s\n", command.c_str());
+    FILE *handle = popen(command.c_str(), "r");
 
     if (handle == NULL) {
             return "";
@@ -26,6 +28,8 @@ std::string Engine::GetMove(std::string moves) {
         lines.push_back(tempString);
     }
     pclose(handle);
+
+    printf("Done - generated %s\n", lines[0].c_str());
 
     return lines[0];
 }
