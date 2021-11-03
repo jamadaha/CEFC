@@ -17,9 +17,12 @@ void FightOrganizer::BeginTournament(int fightCount) {
         // Get second engine of match
         for (int i2 = 1; i2 < engines.size(); i2++) {
             EnginePair *enginePair = new EnginePair(engines[i], engines[i2]);
+            // If same engine
+            if (i == i2)
+                break;
             // This is a check as to whether these engines have fought before
             // If they have then this match is skipped
-            if (fightHistory.EnginesHaveHistory(enginePair->GetHash()))
+            else if (fightHistory.EnginesHaveHistory(enginePair->GetHash()))
                 break;
             
             // Get index of current fight, until it reaches fightCount
