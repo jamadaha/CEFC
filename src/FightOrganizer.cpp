@@ -12,10 +12,17 @@ void FightOrganizer::GatherEngines(std::string path) {
 }
 
 void FightOrganizer::BeginTournament(int fightCount) {
+    printf("-------Beginning tournament-------\n");
+    printf("There are %lu participating engines!\n", engines.size());
+    int totalMatches = 0;
+    for (int i = 0; i < engines.size(); i++)
+        totalMatches += i;
+    printf("With %d fights per match and %d matches, there will be %d total fights!\n", fightCount, totalMatches, fightCount * totalMatches);
     // Get first engine of match
     for (int i = 0; i < engines.size(); i++) {
         // Get second engine of match
         for (int i2 = 1; i2 < engines.size(); i2++) {
+            printf("Starting the match between %s and %s!\n", engines[i]->GetName().c_str(), engines[i2]->GetName().c_str());
             EnginePair *enginePair = new EnginePair(engines[i], engines[i2]);
             // If same engine
             if (i == i2)
@@ -27,8 +34,11 @@ void FightOrganizer::BeginTournament(int fightCount) {
             
             // Get index of current fight, until it reaches fightCount
             for (int fightIndex = 0; fightIndex < fightCount; fightIndex++) {
+                printf("Fight %d/%d | ", fightIndex + 1, fightCount);
                 Fight *fight = new Fight(enginePair);
                 fight->Begin();
+
+                printf("Result: %s\n", (static_cast<int>(fight->result) == 1) ? "Draw" : "Win");
 
                 fightHistory.AddFight(fight);
             }

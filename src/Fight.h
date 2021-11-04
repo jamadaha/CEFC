@@ -6,9 +6,9 @@
 class Fight {
     public:
     enum class Result {
-        unfinished,
-        draw,
-        win
+        unfinished = 0,
+        draw = 1,
+        win = 2
     };
     Result result = Result::unfinished;
     

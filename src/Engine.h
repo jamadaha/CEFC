@@ -11,11 +11,13 @@ class Engine {
     Engine(unsigned long int id, std::string path);
 
     unsigned long int GetId();
+    std::string GetName();
     std::string GetMove(std::string moves);
 
     private:
     unsigned long int id;
     std::string path;
+    std::string name;
 };
 
 #endif
