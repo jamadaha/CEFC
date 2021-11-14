@@ -22,7 +22,6 @@ void FightOrganizer::BeginTournament(int fightCount) {
     for (int i = 0; i < engines.size(); i++) {
         // Get second engine of match
         for (int i2 = 1; i2 < engines.size(); i2++) {
-            printf("Starting the match between %s and %s!\n", engines[i]->GetName().c_str(), engines[i2]->GetName().c_str());
             EnginePair *enginePair = new EnginePair(engines[i], engines[i2]);
             // If same engine
             if (i == i2)
@@ -31,6 +30,8 @@ void FightOrganizer::BeginTournament(int fightCount) {
             // If they have then this match is skipped
             else if (fightHistory.EnginesHaveHistory(enginePair->GetHash()))
                 break;
+
+            printf("Starting the match between %s and %s!\n", engines[i]->GetName().c_str(), engines[i2]->GetName().c_str());
             
             // Get index of current fight, until it reaches fightCount
             for (int fightIndex = 0; fightIndex < fightCount; fightIndex++) {
@@ -38,7 +39,10 @@ void FightOrganizer::BeginTournament(int fightCount) {
                 Fight *fight = new Fight(enginePair);
                 fight->Begin();
 
-                printf("Result: %s\n", (static_cast<int>(fight->result) == 1) ? "Draw" : "Win");
+                if (fight->result == Fight::Result::draw)
+                    printf("Result: Draw\n");
+                else 
+                    printf("Result: Chekmate | %s won\n", fight->GetWinner()->GetName().c_str());
 
                 fightHistory.AddFight(fight);
             }

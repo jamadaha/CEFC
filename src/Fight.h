@@ -1,6 +1,8 @@
 #ifndef FIGHT
 #define FIGHT
 
+#include <string>
+
 #include "EnginePair.h"
 
 class Fight {
@@ -8,18 +10,23 @@ class Fight {
     enum class Result {
         unfinished = 0,
         draw = 1,
-        win = 2
+        checkmate = 2
     };
     Result result = Result::unfinished;
+    std::string moves;
+    
     
     Fight(EnginePair *enginePair);
 
     unsigned long int GetHash();
+    Engine* GetWinner();
 
     void Begin();
 
     private:
     EnginePair *engines;
+    unsigned long int winner;
+    
 };
 
 #endif
