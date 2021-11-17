@@ -15,6 +15,8 @@ class FightHistory {
     // Checks whether there already exists fight with this hash
     bool EnginesHaveHistory(unsigned long int hash);
 
+    void ExportToCSV();
+
     private:
     std::unordered_map<unsigned long int, std::vector<Fight*>> fights;
 

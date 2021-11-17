@@ -1,3 +1,6 @@
+#include <iostream>
+#include <fstream>
+
 #include "FightHistory.h"
 
 void FightHistory::AddFight(Fight* fight) {
@@ -8,4 +11,9 @@ void FightHistory::AddFight(Fight* fight) {
 
 bool FightHistory::EnginesHaveHistory(unsigned long int hash) {
     return fights.find(hash) != fights.end();
+}
+
+void FightHistory::ExportToCSV() {
+    std::ofstream outputFile;
+    outputFile.open("log.csv");
 }
