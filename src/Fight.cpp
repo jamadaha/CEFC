@@ -15,6 +15,13 @@ Engine* Fight::GetWinner() {
         return engines->GetEngine(1);
 }
 
+Engine* Fight::GetLoser() {
+    if (engines->GetEngine(0)->GetId() == winner)
+        return engines->GetEngine(1);
+    else
+        return engines->GetEngine(0);
+}
+
 void Fight::Begin() {
     std::string moves = "";
     while (true) {

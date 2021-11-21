@@ -3,6 +3,8 @@
 
 #include <climits>
 #include <bits/stdc++.h>
+#include <unordered_map>
+
 
 #include "string"
 
@@ -13,11 +15,13 @@ class Engine {
     unsigned long int GetId();
     std::string GetName();
     std::string GetMove(std::string moves);
+    void AddWin(unsigned long int opponent);
 
     private:
     unsigned long int id;
     std::string path;
-    std::string name;
+    std::unordered_map<unsigned long int, unsigned int> wins;
+    
 };
 
 #endif

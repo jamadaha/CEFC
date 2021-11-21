@@ -20,13 +20,14 @@ class Fight {
 
     unsigned long int GetHash();
     Engine* GetWinner();
+    Engine* GetLoser();
 
     void Begin();
 
     private:
     EnginePair *engines;
     unsigned long int winner;
-    
-};
+
+    };
 
 #endif

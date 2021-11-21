@@ -41,3 +41,8 @@ std::string Engine::GetMove(std::string moves) {
     return lines[0];
 }
 
+void Engine::AddWin(unsigned long int opponent) {
+    if (wins.find(opponent) != wins.end())
+        wins.emplace(opponent, 0);
+    wins[opponent] += 1;
+};

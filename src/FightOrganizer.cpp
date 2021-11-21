@@ -35,6 +35,7 @@ void FightOrganizer::BeginTournament(int fightCount) {
             
             // Get index of current fight, until it reaches fightCount
             for (int fightIndex = 0; fightIndex < fightCount; fightIndex++) {
+                // fix indent on fight num/total
                 printf("Fight %d/%d | ", fightIndex + 1, fightCount);
                 Fight *fight = new Fight(enginePair);
                 fight->Begin();
@@ -42,9 +43,10 @@ void FightOrganizer::BeginTournament(int fightCount) {
                 if (fight->result == Fight::Result::draw)
                     printf("Result: Draw\n");
                 else 
-                    printf("Result: Chekmate | %s won\n", fight->GetWinner()->GetName().c_str());
+                    printf("Result: Checkmate | %s won\n", fight->GetWinner()->GetName().c_str());
 
                 fightHistory.AddFight(fight);
+                fight->GetWinner()->AddWin(fight->GetLoser()->GetId());
             }
         }
     }
