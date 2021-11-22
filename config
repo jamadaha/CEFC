@@ -1,2 +1,3 @@
 EnginePath=Engines
 FightCount=10
+PrintResults=True

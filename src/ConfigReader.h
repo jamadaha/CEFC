@@ -10,7 +10,8 @@ class ConfigReader {
 	public:
 	ConfigReader(std::string path);
 	void Read();
-	std::string GetValue(std::string key);
+	std::string GetString(std::string key);
+	bool GetBool(std::string key);
 
 	private:
 	std::string path;

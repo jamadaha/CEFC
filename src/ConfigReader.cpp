@@ -16,8 +16,13 @@ void ConfigReader::Read() {
 	}
 }
 
-std::string ConfigReader::GetValue(std::string key) {
+std::string ConfigReader::GetString(std::string key) {
 	return readValues[key];
+}
+
+bool ConfigReader::GetBool(std::string key) {
+	return readValues[key] == "True";
+
 }
 
 void ConfigReader::HandleLine(std::string line) {
