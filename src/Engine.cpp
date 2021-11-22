@@ -45,4 +45,15 @@ void Engine::AddWin(unsigned long int opponent) {
     if (wins.find(opponent) != wins.end())
         wins.emplace(opponent, 0);
     wins[opponent] += 1;
-};
+}
+
+double Engine::GetWinrate(Engine* engine) {
+    int thisWins = GetWinCount(engine->GetId());
+    int opponentWins = engine->GetWinCount(GetId());
+
+    return (double)thisWins / (thisWins + opponentWins);
+}
+
+int Engine::GetWinCount(unsigned long int opponent) {
+    return wins[opponent];
+}

@@ -16,6 +16,8 @@ class Engine {
     std::string GetName();
     std::string GetMove(std::string moves);
     void AddWin(unsigned long int opponent);
+    double GetWinrate(Engine* engine);
+    int GetWinCount(unsigned long int opponent);
 
     private:
     unsigned long int id;
