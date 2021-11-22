@@ -51,3 +51,36 @@ void FightOrganizer::BeginTournament(int fightCount) {
         }
     }
 }
+
+void FightOrganizer::PrintTournamentResults() {
+    std::ofstream outputFile;
+
+    // Delete if exist
+    std::remove("log.csv");
+    // Then create and open new
+    outputFile.open("log.csv");
+
+    // Print header
+    outputFile << "Engine";
+    for (int i = 0; i < engines.size(); i++) {
+        outputFile << ',' << engines[i]->GetName();
+    }
+    outputFile << '\n';
+
+    // Print results
+    for (int i = 0; i < engines.size(); i++) {
+        outputFile << engines[i]->GetName() << ',';
+        for (int i2 = 0; i2 < engines.size(); i2++) {
+            if (i != i2) {
+                double winrate = engines[i]->GetWinrate(engines[i2]);
+                outputFile << winrate;
+            }
+            if (i2 != engines.size() - 1)
+                outputFile << ',';
+        }
+        outputFile << '\n';
+    }
+    
+
+    outputFile.close();
+}

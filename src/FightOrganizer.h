@@ -6,6 +6,7 @@
 #include <filesystem>
 #include <random>
 #include <climits>
+#include <stdio.h>
 
 #include "Engine.h"
 #include "EnginePair.h"
@@ -16,6 +17,7 @@ class FightOrganizer {
     FightOrganizer();
     void GatherEngines(std::string path);
     void BeginTournament(int fightCount);
+    void PrintTournamentResults();
 
     private:
     std::vector<Engine*> engines;
