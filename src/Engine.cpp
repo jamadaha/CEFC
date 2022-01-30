@@ -21,7 +21,7 @@ std::string Engine::GetName() {
 
 std::string Engine::GetMove(std::string moves) {
     auto command = (this->path + ' ' + moves);
-    FILE *handle = popen(command.c_str(), "r");
+    FILE *handle = _popen(command.c_str(), "r");
 
     if (handle == NULL) {
             return "";
@@ -36,7 +36,7 @@ std::string Engine::GetMove(std::string moves) {
         tempString = tempString.substr(0, tempString.size() - 1);
         lines.push_back(tempString);
     }
-    pclose(handle);
+    _pclose(handle);
 
     return lines[0];
 }

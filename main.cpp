@@ -6,7 +6,7 @@
 #include "src/FightOrganizer.h"
 
 int main(int, char**) {
-    ConfigReader configReader = ConfigReader("config");
+    ConfigReader configReader = ConfigReader("config.txt");
     configReader.Read();
     FightOrganizer fightOrganizer = FightOrganizer();
     fightOrganizer.GatherEngines(configReader.GetString("EnginePath"));

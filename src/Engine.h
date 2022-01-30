@@ -2,11 +2,15 @@
 #define ENGINE
 
 #include <climits>
-#include <bits/stdc++.h>
 #include <unordered_map>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string>
+#include <iostream>
+#include <sstream>
+#include <fstream>
 
-
-#include "string"
+#include <string>
 
 class Engine {
     public:

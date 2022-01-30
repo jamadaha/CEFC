@@ -8,7 +8,7 @@ void FightOrganizer::GatherEngines(std::string path) {
     std::mt19937 gen(0);
 	std::uniform_int_distribution<unsigned long int> distribution(0, ULONG_MAX);
     for (const auto & entry : std::filesystem::directory_iterator(path))
-        engines.push_back(new Engine(distribution(gen), entry.path()));
+        engines.push_back(new Engine(distribution(gen), entry.path().string()));
 }
 
 void FightOrganizer::BeginTournament(int fightCount) {
