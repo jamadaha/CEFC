@@ -1,3 +1,3 @@
-EnginePath=Engines
+EnginePath=engines
 FightCount=10
 PrintResults=True

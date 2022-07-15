@@ -4,11 +4,16 @@ FightOrganizer::FightOrganizer() {
     
 }
 
-void FightOrganizer::GatherEngines(std::string path) {
+bool FightOrganizer::GatherEngines(std::string path) {
     std::mt19937 gen(0);
 	std::uniform_int_distribution<unsigned long int> distribution(0, ULONG_MAX);
+    if (!Utilities::DoesPathExist(path.c_str())) {
+        printf("Engine folder does not exist. Fix by creating folder with path specified in config, currently %s\n", path.c_str());
+        return false;
+    }
     for (const auto & entry : std::filesystem::directory_iterator(path))
         engines.push_back(new Engine(distribution(gen), entry.path().string()));
+    return true;
 }
 
 void FightOrganizer::BeginTournament(int fightCount) {

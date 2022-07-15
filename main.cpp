@@ -9,9 +9,10 @@ int main(int, char**) {
     ConfigReader configReader = ConfigReader("config.txt");
     configReader.Read();
     FightOrganizer fightOrganizer = FightOrganizer();
-    fightOrganizer.GatherEngines(configReader.GetString("EnginePath"));
-    fightOrganizer.BeginTournament(std::stoi(configReader.GetString("FightCount")));
-    if (configReader.GetBool("PrintResults"))
-        fightOrganizer.PrintTournamentResults();
-    printf("Done\n");
+    if (fightOrganizer.GatherEngines(configReader.GetString("EnginePath"))) {
+        fightOrganizer.BeginTournament(std::stoi(configReader.GetString("FightCount")));
+        if (configReader.GetBool("PrintResults"))
+            fightOrganizer.PrintTournamentResults();
+        printf("Done\n");
+    }
 }

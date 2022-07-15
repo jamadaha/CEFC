@@ -11,11 +11,12 @@
 #include "Engine.h"
 #include "EnginePair.h"
 #include "FightHistory.h"
+#include "Utilities.h"
 
 class FightOrganizer {
     public:
     FightOrganizer();
-    void GatherEngines(std::string path);
+    bool GatherEngines(std::string path);
     void BeginTournament(int fightCount);
     void PrintTournamentResults();
 
